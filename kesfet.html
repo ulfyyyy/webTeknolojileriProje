@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Keşfedin</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">
+                <img class="logo" src="logo.png" alt="icon">
+            </a> 
+            <nav class="navBarGenel">
+                <ul class="nav__links">
+                    <li class="navItem" data-tooltip="Ana sayfaya gitmek için tıklayın."><a href="index.html">Ana Sayfa</a></li>
+                    <li class="navItem" data-tooltip="Keşfet için tıklayın."><a href="kesfet.html">Keşfedin</a></li>
+                    <li class="navItem" data-tooltip="Konular sayfasına gitmek için tıklayın."><a href="konular.html">Başlıklar</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a data-tooltip="Hesap oluşturmak için tıklayın." class="cta kayit-button" href="kayit.html"><button>Kayıt Ol</button></a>
+                <a data-tooltip="İletişim bilgilerine ulaşın." class="cta" href="iletisim.html"><button>İletişim</button></a>
+            </div>
+        </header>
+
+        <br><br>
+        <h2 id="anaBaslik2">Keşfedin</h2>
+        <p class="metin" id="kesfetAciklama">Bu sayfada sizlere en çok kullanılan ve en çok ilgi gören teknolojileri göstereceğiz.</p>
+
+        <!-- slider -->
+        <div class="slider-container">
+            <div class="card-slider" id="cardSlider">
+                <!-- Mobil Geliştirme Kartları -->
+                <div class="card">
+                    <img src="assets/images/flutter.png" alt="Flutter">
+                    <h3>Flutter</h3>
+                    <p>Cross-platform mobil uygulama geliştirme framework'ü</p>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/react-native.png" alt="React Native">
+                    <h3>React Native</h3>
+                    <p>JavaScript ile mobil uygulama geliştirme</p>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/kotlin.png" alt="Kotlin">
+                    <h3>Kotlin</h3>
+                    <p>Android uygulama geliştirme dili</p>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/swift.png" alt="Swift">
+                    <h3>Swift</h3>
+                    <p>iOS uygulama geliştirme dili</p>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/xamarin.png" alt="Xamarin">
+                    <h3>Xamarin</h3>
+                    <p>.NET ile cross-platform mobil geliştirme</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- pop-up -->
+        
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <h2>Keşfetmeye Başlayın</h2>
+                <br><br><br><br><br><br>
+                <p id="popup-content">Keyifli keşifler!</p>                
+            </div>
+        </div>
+
+
+        
+        
+        <!-- buraya kartlar eklenecek -->
+
+        
+
+        
+        <script src="javaS.js"></script>
+        
+
+        <script>
+            const slider = document.getElementById('cardSlider');
+            let scrollAmount = 0;
+            const cardWidth = 300; // Kart genişliği + margin değeri
+            
+            function autoScroll() {
+                scrollAmount += cardWidth;
+                
+                // Eğer son karta ulaşıldıysa başa dön
+                if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+                    scrollAmount = 0;
+                }
+                
+                slider.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Her 1.5 saniyede bir kaydır (3000ms -> 1500ms)
+            setInterval(autoScroll, 2200);
+        </script>
+    </body>
+</html>

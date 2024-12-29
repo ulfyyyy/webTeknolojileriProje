@@ -1,0 +1,889 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+li, a, button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252A;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid #58ff5893;
+    z-index: 10000;
+}
+
+/* Logo için sol kısım */
+.logo {
+    cursor: pointer;
+    height: 80px;
+    flex: 1;
+}
+
+/* Navigation menüsü için orta kısım */
+.nav__links {
+    list-style: none;
+    flex: 2;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Butonlar için sağ kısım */
+.header-buttons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-right: 30px;
+}
+
+/* Butonlar arası boşluk için */
+.cta {
+    margin-left: 10px;
+}
+
+/* Kayıt ol butonu için özel margin */
+.cta.kayit-button {
+    margin-left: auto; /* Bu buton ile önceki elementler arasına otomatik boşluk ekler */
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #06c77a;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgb(2, 160, 97);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0, 148, 99, 0.8);
+}
+
+.metin {
+    color: rgb(202, 202, 202);
+    padding: 20%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-family: "Montserrat", sans-serif;
+    line-height: 170%;
+    margin: 0%;
+    
+}
+
+h2 {
+    text-align: center;
+    color: #06c77a;
+    font-family: "Montserrat", sans-serif;
+    margin: auto;
+    padding-bottom: 2%;
+}
+
+#mobilUygulamaGelistirmeSureci {
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    padding: 14%;
+    padding-left: 30%;
+    padding-right: 5%;
+    padding-top: 3%;
+    line-height: 230%;
+    padding-bottom: 5%;
+    flex: 1;
+    margin: 0;    
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+}
+
+#anaSayfaIlkGorsel {
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.sidebar {
+    font-family: "Montserrat", sans-serif;
+    height: 100vh;
+    width: 19%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 10px;
+    margin-top: 130px;
+}
+
+.sidebar h2 {
+    padding-bottom: 13%;
+    text-align: left;
+    padding-left: 15%;
+}
+
+.sidebar ul {
+    line-height: 200%;
+    padding-left: 20%;
+    letter-spacing: 11%;
+    text-decoration: none;
+    list-style: none;
+}
+
+.navItem {
+    position: relative;
+}
+
+
+/* chatGPT */
+.navItem[data-tooltip]::after {
+    content: attr(data-tooltip); /* Tooltip açıklamasını data-tooltip'ten alır */
+    visibility: hidden; /* İlk başta görünmez */
+    opacity: 0; /* Şeffaflık ekler */
+    background-color: #333; /* Arka plan rengi */
+    color: #ffffff9c; /* Metin rengi */
+    text-align: center; /* Metni ortalar */
+    border-radius: 4px; /* Köşeleri yuvarlatır */
+    padding: 3px; /* İç boşluk */
+    position: absolute; /* Konumlandırma */
+    bottom: 125%; /* Öğenin üstünde yer alır */
+    left: 50%; /* Yatayda ortalar */
+    transform: translateX(-50%);
+    z-index: 10; /* Diğer öğelerin üstünde görünür */
+    white-space: nowrap; /* Uzun metinlerin taşmasını engeller */
+    transition: opacity 0.2s ease, visibility 0.2s ease; /* Görünürlük geçişi */
+    font-weight: 200;
+    font-size: 90%;
+}
+
+
+/* chatGPT */
+.navItem:hover[data-tooltip]::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+#anaBaslik {
+    padding-top: 137px;
+}
+
+#anaBaslik2 {
+    padding-top: 100px;
+}
+
+.cta {
+    position: relative;
+}
+
+.cta[data-tooltip]::after {
+    content: attr(data-tooltip); /* Tooltip açıklamasını data-tooltip'ten alır */
+    visibility: hidden; /* İlk başta görünmez */
+    opacity: 0; /* Şeffaflık ekler */
+    background-color: #333; /* Arka plan rengi */
+    color: #ffffff9c; /* Metin rengi */
+    text-align: center; /* Metni ortalar */
+    border-radius: 4px; /* Köşeleri yuvarlatır */
+    padding: 5px; /* İç boşluk */
+    position: absolute; /* Konumlandırma */
+    bottom: -125%; /* Öğenin üstünde yer alır */
+    left: 50%; /* Yatayda ortalar */
+    transform: translateX(-80%);
+    z-index: 10; /* Diğer öğelerin üstünde görünür */
+    white-space: nowrap; /* Uzun metinlerin taşmasını engeller */
+    transition: opacity 0.2s ease, visibility 0.2s ease; /* Görünürlük geçişi */
+    font-weight: 200;
+    font-size: 90%;
+}
+
+.cta:hover[data-tooltip]::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.container5 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#roadMapGorsel {
+    width: 40%;
+    margin: 0%;
+    flex: 20;
+    margin-right: 0%;
+    opacity: 80%;
+    z-index: 0;
+}
+
+/* Pop-up'ın ana kapsayıcısı */
+.popup {
+    display: none; /* Başlangıçta pop-up görünmez (gizli). */
+    position: fixed; /* Pop-up ekranın bir yerine sabitlenir ve scroll ile hareket etmez. */
+    top: 50%; /* Ekranın dikey ekseninde ortalanması için %50 yukarı kaydırılır. */
+    left: 50%; /* Ekranın yatay ekseninde ortalanması için %50 sola kaydırılır. */
+    transform: translate(-50%, -60%); /* Başlangıçta yukarıda konumlandırılır */
+    background-color: #24252A; /* Pop-up'ın arka plan rengini koyu gri yapar. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Hafif gölge efekti verir, derinlik hissi oluşturur. */
+    z-index: 1000; /* Pop-up'ın diğer içeriklerin üzerinde görünmesini sağlar. */
+    padding: 20px; /* İçeriğin kenarlarından uzak durmasını sağlar (iç boşluk). */
+    border-radius: 10px; /* Köşeleri yuvarlatır, daha yumuşak bir görünüm sağlar. */
+    color: #01965a; /* Yazı rengi */
+    font-family: "Montserrat", sans-serif; /* Font ayarı */
+    width: 40%; /* Pop-up genişliği */
+    height: 50%; /* Pop-up yüksekliği */
+
+    /* Başlangıçtaki animasyon durumu */
+    opacity: 0; /* Pop-up başlangıçta şeffaf (görünmez). */
+    transform: translate(-50%, -60%); /* Başlangıçta yukarıda konumlandırılır */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animasyon süresi ve zamanlama fonksiyonu */
+}
+
+/* Pop-up görünür hale geldiğinde */
+.popup.show {
+    opacity: 1; /* Opaklık (görünürlük) tam olur. */
+    transform: translate(-50%, -50%); /* Pop-up tam ortada yer alır. */
+}
+
+/* Pop-up içeriğini düzenleyen kapsayıcı */
+.popup-content {
+    text-align: center; /* İçeriği yatayda ortalar. */
+}
+
+/* Kapatma düğmesinin tasarımı */
+.close {
+    position: absolute; /* Kapatma simgesi, pop-up içinde sabit bir konumda yerleştirilir. */
+    top: 0px; /* Pop-up'ın üst kenarından 10 piksel aşağı yerleştirilir. */
+    right: 10px; /* Pop-up'ın sağ kenarından 10 piksel içeri yerleştirilir. */
+    font-size: 30px; /* Kapatma simgesinin yazı boyutunu belirler. */
+    cursor: pointer; /* Üzerine gelindiğinde imleci bir el işaretine dönüştürerek tıklanabilir olduğunu belirtir. */
+}
+
+
+
+
+.basliklarAnaBasligi {
+    padding-top: 130px;
+}
+
+h3 {
+    text-align: center;
+    color: #06c77a;
+    font-family: "Montserrat", sans-serif;
+    margin: auto;
+    padding-bottom: 0%;
+}
+
+.liste {
+    padding-left: 22%;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    font-weight: 300;
+    padding-bottom: 1%;
+    padding-right: 23%;
+    line-height: 160%;
+}
+
+.basliklar2 {
+    padding-top: 4%;
+}
+
+.deneme123 {
+    border-bottom: 2px solid #30f858b2; /* Mavi renkte 2px kalınlığında bir alt sınır */
+    padding-bottom: 0px; /* Çizgi ile yazı arasına boşluk ekler */
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* Yeni Slider Styles */
+.slider-container {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    overflow: hidden;
+    background-color: #24252A;
+}
+
+.card-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 20px 40px;
+    background-color: #24252A;
+}
+
+.card-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 500px;
+    height: 400px;
+    background: #2c2d33;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
+    border: 1px solid #383838;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(6, 199, 122, 0.2);
+    border-color: #06c77a;
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: transparent;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #06c77a;
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: 10px;
+    background-color: transparent;
+    text-transform: none;
+}
+
+.card p {
+    color: #edf0f1;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-top: 15px;
+    font-family: "Montserrat", sans-serif;
+    background-color: transparent;
+    flex-grow: 1;
+}
+
+/* Mobil uyumluluk için */
+@media (max-width: 768px) {
+    .slider-container {
+        padding: 10px;
+        margin-top: 60px;
+    }
+
+    .card {
+        width: 320px;
+        padding: 20px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+}
+
+/* Kaydırma göstergesi için stil */
+.card-slider::after {
+    content: '';
+    padding-right: 20px;
+    background-color: transparent;
+}
+
+/* Kartların içindeki elementlerin arka plan rengini düzeltme */
+.card * {
+    background-color: transparent;
+}
+
+#kesfetAciklama {
+    text-align: center;
+}
+
+/* İletişim Formu Stilleri */
+.contact-container {
+    max-width: 800px;
+    margin: 150px auto 50px;
+    padding: 0 20px;
+}
+
+.contact-form {
+    background: #2c2d33;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #383838;
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    background-color: transparent;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #06c77a;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #24252A;
+    border: 1px solid #383838;
+    border-radius: 8px;
+    color: #edf0f1;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #06c77a;
+    box-shadow: 0 0 0 2px rgba(6, 199, 122, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #06c77a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #05b36e;
+    transform: translateY(-2px);
+}
+
+#iletisimAciklama {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Mobil uyumluluk için */
+@media (max-width: 768px) {
+    .contact-container {
+        margin-top: 120px;
+    }
+    
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+.contact-form * {
+    background-color: transparent;
+}
+
+/* Kayıt formu stilleri */
+.register-container {
+    max-width: 500px;
+    margin: 150px auto 50px;
+    padding: 0 20px;
+}
+
+.register-form {
+    background: #2c2d33;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #383838;
+}
+
+.register-form h2 {
+    color: #06c77a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    background: transparent;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    color: #edf0f1;
+    font-size: 0.9rem;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #edf0f1;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: #06c77a;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Form içindeki tüm elemanların arka planını saydam yapmak için */
+.register-form * {
+    background-color: transparent;
+}
+
+/* Input alanları için özel stil */
+.register-form input {
+    background: rgba(44, 45, 51, 0.5);
+    border: 1px solid rgba(56, 56, 56, 0.8);
+}
+
+/* Login formu stilleri */
+.login-container {
+    max-width: 500px;
+    margin: 150px auto 50px;
+    padding: 0 20px;
+}
+
+.login-form {
+    background: rgba(44, 45, 51, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 56, 56, 0.5);
+}
+
+.login-form h2 {
+    color: #06c77a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    background: transparent;
+}
+
+.login-form * {
+    background-color: transparent;
+}
+
+.login-form input {
+    background: rgba(44, 45, 51, 0.5);
+    border: 1px solid rgba(56, 56, 56, 0.8);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: #06c77a;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #edf0f1;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #06c77a;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Mobil uyumluluk için media queries */
+@media screen and (max-width: 768px) {
+    /* Header ve navigasyon için mobil stiller */
+    header {
+        flex-direction: column;
+        padding: 10px;
+        position: relative;
+        align-items: center;
+    }
+
+    .logo {
+        height: 60px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .nav__links {
+        position: relative;
+        left: 0;
+        transform: none;
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav__links li {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .header-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 10px 0;
+    }
+
+    .cta, button {
+        margin: 5px;
+        width: auto;
+        display: inline-block;
+    }
+
+    .cta.kayit-button {
+        margin-left: 5px;
+    }
+
+    .header-buttons > * {
+        flex: 0 1 auto;
+    }
+
+    /* Sidebar düzenlemesi */
+    .sidebar {
+        display: none; /* Mobilde sidebar'ı gizle */
+    }
+
+    /* Ana içerik düzenlemeleri */
+    #mobilUygulamaGelistirmeSureci {
+        padding: 20px;
+        padding-top: 80px;
+    }
+
+    .container5 {
+        flex-direction: column;
+    }
+
+    #roadMapGorsel {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    /* Metin ve başlıklar */
+    .metin {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding: 0 15px;
+    }
+
+    /* Form düzenlemeleri */
+    .contact-container,
+    .register-container,
+    .login-container {
+        width: 95%;
+        margin-top: 100px;
+    }
+
+    .contact-form,
+    .register-form,
+    .login-form {
+        padding: 20px;
+    }
+
+    /* Card slider düzenlemesi */
+    .card {
+        width: 300px;
+        height: auto;
+        min-height: 350px;
+    }
+}
+
+/* Daha küçük ekranlar için ek düzenlemeler */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 5px;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cta {
+        width: 80%;
+        margin: 5px 0;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .metin {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+
+    /* Form elementleri */
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem;
+    }
+
+    /* Card slider için ek düzenlemeler */
+    .card {
+        width: 260px;
+        padding: 15px;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+
+    /* Liste düzenlemesi */
+    .liste {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+/* Orta boy ekranlar için düzenlemeler */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .sidebar {
+        width: 25%;
+    }
+
+    #mobilUygulamaGelistirmeSureci {
+        padding-left: 27%;
+    }
+
+    .card {
+        width: 400px;
+    }
+}
+
+/* Zoom özelliği için stiller */
+.zoom-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.zoom-image {
+    max-width: 60%;
+    height: auto;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.zoom-image:hover {
+    transform: scale(1.2); /* Zoom seviyesi */
+}
+
+/* Mobil uyumluluk için */
+@media screen and (max-width: 768px) {
+    .zoom-image {
+        max-width: 90%;
+    }
+    
+    .zoom-image:hover {
+        transform: scale(1.1); /* Mobilde daha az zoom */
+    }
+}
