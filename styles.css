@@ -260,51 +260,86 @@ p {
     z-index: 0;
 }
 
-/* Pop-up'ın ana kapsayıcısı */
+/* Popup stilleri */
 .popup {
-    display: none; /* Başlangıçta pop-up görünmez (gizli). */
-    position: fixed; /* Pop-up ekranın bir yerine sabitlenir ve scroll ile hareket etmez. */
-    top: 50%; /* Ekranın dikey ekseninde ortalanması için %50 yukarı kaydırılır. */
-    left: 50%; /* Ekranın yatay ekseninde ortalanması için %50 sola kaydırılır. */
-    transform: translate(-50%, -60%); /* Başlangıçta yukarıda konumlandırılır */
-    background-color: #24252A; /* Pop-up'ın arka plan rengini koyu gri yapar. */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Hafif gölge efekti verir, derinlik hissi oluşturur. */
-    z-index: 1000; /* Pop-up'ın diğer içeriklerin üzerinde görünmesini sağlar. */
-    padding: 20px; /* İçeriğin kenarlarından uzak durmasını sağlar (iç boşluk). */
-    border-radius: 10px; /* Köşeleri yuvarlatır, daha yumuşak bir görünüm sağlar. */
-    color: #01965a; /* Yazı rengi */
-    font-family: "Montserrat", sans-serif; /* Font ayarı */
-    width: 40%; /* Pop-up genişliği */
-    height: 50%; /* Pop-up yüksekliği */
-
-    /* Başlangıçtaki animasyon durumu */
-    opacity: 0; /* Pop-up başlangıçta şeffaf (görünmez). */
-    transform: translate(-50%, -60%); /* Başlangıçta yukarıda konumlandırılır */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Animasyon süresi ve zamanlama fonksiyonu */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
 }
 
-/* Pop-up görünür hale geldiğinde */
-.popup.show {
-    opacity: 1; /* Opaklık (görünürlük) tam olur. */
-    transform: translate(-50%, -50%); /* Pop-up tam ortada yer alır. */
-}
-
-/* Pop-up içeriğini düzenleyen kapsayıcı */
 .popup-content {
-    text-align: center; /* İçeriği yatayda ortalar. */
+    background-color: #24252A;
+    margin: 15% auto;
+    padding: 30px;
+    width: 40%;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #06c77a;
 }
 
-/* Kapatma düğmesinin tasarımı */
 .close {
-    position: absolute; /* Kapatma simgesi, pop-up içinde sabit bir konumda yerleştirilir. */
-    top: 0px; /* Pop-up'ın üst kenarından 10 piksel aşağı yerleştirilir. */
-    right: 10px; /* Pop-up'ın sağ kenarından 10 piksel içeri yerleştirilir. */
-    font-size: 30px; /* Kapatma simgesinin yazı boyutunu belirler. */
-    cursor: pointer; /* Üzerine gelindiğinde imleci bir el işaretine dönüştürerek tıklanabilir olduğunu belirtir. */
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #06c77a;
 }
 
+/* Mobil için popup düzenlemeleri */
+@media screen and (max-width: 768px) {
+    .popup-content {
+        width: 80%;
+        height: auto;
+        margin: 30% auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .popup h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
 
+    #popup-content {
+        font-size: 16px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .close {
+        right: 15px;
+        top: 15px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .popup-content {
+        width: 85%;
+        padding: 15px;
+        margin: 40% auto;
+    }
+
+    .popup h2 {
+        font-size: 18px;
+    }
+
+    #popup-content {
+        font-size: 14px;
+    }
+}
 
 .basliklarAnaBasligi {
     padding-top: 130px;
@@ -885,5 +920,126 @@ h3 {
     
     .zoom-image:hover {
         transform: scale(1.1); /* Mobilde daha az zoom */
+    }
+}
+
+/* Mobil menü butonu */
+.mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1000;
+    margin-right: 15px;
+}
+
+.mobile-menu-button span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #06c77a;
+    transition: all 0.3s ease;
+}
+
+/* Mobil uyumluluk için medya sorguları */
+@media screen and (max-width: 768px) {
+    /* Mobil menü butonu gösterimi */
+    .mobile-menu-button {
+        display: flex;
+    }
+
+    /* Header düzenlemesi */
+    header {
+        padding: 15px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logo {
+        height: 50px;
+        order: 1;
+    }
+
+    .nav__links {
+        width: 100%;
+        order: 3;
+        display: none; /* Varsayılan olarak gizli */
+        padding: 20px 0;
+    }
+
+    .nav__links.active {
+        display: block;
+    }
+
+    .nav__links li {
+        display: block;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .header-buttons {
+        order: 2;
+        margin: 0;
+    }
+
+    /* Ana içerik düzenlemeleri */
+    .container3 {
+        margin-top: 100px;
+    }
+
+    #anaSayfaIlkGorsel {
+        height: auto;
+        max-width: 90%;
+        margin: 20px 0;
+    }
+
+    .container5 {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    #mobilUygulamaGelistirmeSureci {
+        padding: 20px;
+    }
+
+    #roadMapGorsel {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    /* Metin düzenlemeleri */
+    .metin {
+        padding: 20px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
+
+/* Daha küçük ekranlar için ek düzenlemeler */
+@media screen and (max-width: 480px) {
+    .header-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cta button {
+        width: 100%;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .metin {
+        font-size: 13px;
     }
 }

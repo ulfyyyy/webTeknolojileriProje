@@ -12,6 +12,13 @@
         <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     </head>
     <body>
+        <!-- Mobil menü butonu -->
+        <div class="mobile-menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <header>
             <a href="index.html">
                 <img class="logo" src="logo.png" alt="icon">
@@ -94,5 +101,20 @@
         <h3>Sonuç</h3>
         <p class="metin">Mobil uygulama geliştirme, hem teknik bilgi hem de yaratıcı düşünce gerektiren bir süreçtir. Başarılı bir uygulama geliştirmek için kullanıcı odaklı yaklaşım, sürekli test ve iyileştirme gibi unsurlar büyük rol oynar. Bu temelleri iyi anlamak, uzun vadede kaliteli ve etkili uygulamalar oluşturmanıza yardımcı olacaktır.</p>
     
+        <script>
+            // Mobil menü işlemleri
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav__links');
+
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        </script>
     </body>
 </html>

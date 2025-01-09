@@ -4,11 +4,26 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Kayıt Ol</title>
+        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     </head>
     <body>
+        <!-- Sidebar toggle butonu -->
+        <button id="sidebarToggle" class="sidebar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Mobil menü butonu -->
+        <div class="mobile-menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <header>
             <a href="index.html">
                 <img class="logo" src="logo.png" alt="icon">
@@ -26,39 +41,136 @@
             </div>
         </header>
 
+        <!-- Sidebar overlay -->
+        <div class="sidebar-overlay"></div>
+
         <div class="register-container">
             <div class="register-form">
-                <h2>Hesap Oluştur</h2>
-                <form id="registerForm">
-                    <div class="form-group">
-                        <label for="name">Ad Soyad</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-posta</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Şifre</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="confirmPassword">Şifre Tekrar</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    </div>
-
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        <label for="terms">Kullanım koşullarını kabul ediyorum</label>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Kayıt Ol</button>
-                </form>
-                <p class="login-link">Zaten hesabınız var mı? <a href="giris.html">Giriş yapın</a></p>
+                <h2>Kayıt Ol</h2>
+                <div class="form-group">
+                    <label for="username">Kullanıcı Adı</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Şifre</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Şifre Tekrar</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <button type="submit">Kayıt Ol</button>
+                <div class="login-link">
+                    Zaten hesabınız var mı? <a href="giris.html">Giriş Yap</a>
+                </div>
             </div>
         </div>
+
+        <script>
+            // Mobil menü işlemleri
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav__links');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Menü açıkken scroll'u engelle
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Sidebar toggle işlemleri
+            sidebarToggle.addEventListener('click', toggleSidebar);
+            sidebarOverlay.addEventListener('click', toggleSidebar);
+
+            function toggleSidebar() {
+                document.querySelector('.sidebar').classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+                document.body.classList.toggle('sidebar-open');
+            }
+
+            // Sayfa yüklendiğinde scroll'u reset'le
+            window.addEventListener('load', () => {
+                document.body.style.overflow = 'auto';
+            });
+        </script>
+
+        <style>
+            /* Sidebar toggle butonu */
+            .sidebar-toggle {
+                display: none;
+                position: fixed;
+                top: 100px;
+                left: 20px;
+                z-index: 1001;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+            }
+
+            .sidebar-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: #06c77a;
+                margin: 5px 0;
+                transition: 0.3s;
+            }
+
+            /* Overlay stil */
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 998;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .sidebar-overlay.active {
+                opacity: 1;
+                display: block;
+            }
+
+            @media screen and (max-width: 768px) {
+                .register-container {
+                    padding: 20px;
+                    margin-top: 100px;
+                    width: 90%;
+                }
+
+                .register-form {
+                    padding: 15px;
+                }
+
+                .form-group {
+                    margin-bottom: 15px;
+                }
+
+                .register-form button {
+                    margin-top: 20px;
+                    width: 100%;
+                }
+
+                .login-link {
+                    margin-top: 15px;
+                    text-align: center;
+                }
+            }
+        </style>
     </body>
 </html>

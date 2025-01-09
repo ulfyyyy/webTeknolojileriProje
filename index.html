@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Ana Sayfa</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     </head>
@@ -13,6 +13,11 @@
         <button id="yukariCik" title="Yukarı Çık">↑</button>
 
         <header>
+            <div class="mobile-menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <a href="index.html">
                 <img class="logo" src="logo.png" alt="icon">
             </a> 
@@ -77,7 +82,7 @@
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    const offset = 110; // Piksel cinsinden üstten boşluk miktarı
+                    const offset = 110;
                     
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - offset;
@@ -104,6 +109,23 @@
                     top: 0,
                     behavior: "smooth"
                 });
+            });
+
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav__links');
+
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            window.addEventListener('load', () => {
+                document.body.style.overflow = 'auto';
             });
         </script>
         

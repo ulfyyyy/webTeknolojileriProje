@@ -10,6 +10,13 @@
         <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     </head>
     <body>
+        <!-- Mobil menü butonu -->
+        <div class="mobile-menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <header>
             <a href="index.html">
                 <img class="logo" src="logo.png" alt="icon">
@@ -68,7 +75,6 @@
         </div>
 
         <!-- pop-up -->
-        
         <div class="popup" id="popup">
             <div class="popup-content">
                 <span class="close">&times;</span>
@@ -78,26 +84,31 @@
             </div>
         </div>
 
-
-        
-        
-        <!-- buraya kartlar eklenecek -->
-
-        
-
-        
         <script src="javaS.js"></script>
-        
 
         <script>
+            // Mobil menü işlemleri
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav__links');
+
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Orijinal slider scripti
             const slider = document.getElementById('cardSlider');
             let scrollAmount = 0;
-            const cardWidth = 300; // Kart genişliği + margin değeri
+            const cardWidth = 300;
             
             function autoScroll() {
                 scrollAmount += cardWidth;
                 
-                // Eğer son karta ulaşıldıysa başa dön
                 if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
                     scrollAmount = 0;
                 }
@@ -108,7 +119,6 @@
                 });
             }
 
-            // Her 1.5 saniyede bir kaydır (3000ms -> 1500ms)
             setInterval(autoScroll, 2200);
         </script>
     </body>
